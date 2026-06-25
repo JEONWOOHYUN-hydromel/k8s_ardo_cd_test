@@ -78,7 +78,12 @@ ORDERS: dict[int, dict[str, Any]] = {
 
 @app.get("/healthz")
 def healthz() -> dict[str, str]:
-    return {"status": "ok", "service": SERVICE_NAME, "env": APP_ENV}
+    return {
+        "status": "ok",
+        "service": SERVICE_NAME,
+        "env": APP_ENV,
+        "version": "v2",
+    }
 
 
 @app.get("/api/orders")
