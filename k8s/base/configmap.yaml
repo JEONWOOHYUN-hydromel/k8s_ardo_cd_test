@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orders-api-config
+data:
+  APP_ENV: dev
+  OTEL_SERVICE_NAME: orders-api
+  OTEL_EXPORTER_OTLP_ENDPOINT: ""

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: orders-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JEONWOOHYUN-hydromel/k8s_ardo_cd_test.git
+    targetRevision: main
+    path: k8s/overlays/otel
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8s-lab
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
