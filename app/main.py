@@ -15,6 +15,7 @@ from opentelemetry.sdk.trace.export import (
     ConsoleSpanExporter,
     SimpleSpanProcessor,
 )
+from prometheus_fastapi_instrumentator import Instrumentator
 
 
 SERVICE_NAME = os.getenv("OTEL_SERVICE_NAME", "orders-api")
@@ -67,6 +68,7 @@ tracer = configure_tracing()
 
 app = FastAPI(title="Kubernetes Observability GitOps Lab")
 FastAPIInstrumentor.instrument_app(app)
+Instrumentator().instrument(app).expose(app)
 
 
 ORDERS: dict[int, dict[str, Any]] = {

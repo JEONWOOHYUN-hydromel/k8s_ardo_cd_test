@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: orders-api
-          image: k8s-lab-api:v2
+          image: k8s-lab-api:v3
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
